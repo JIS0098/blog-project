@@ -10,7 +10,7 @@ function Header() {
 }
 
 const HeaderLayout = styled.div`
-  width: 87%;
+  width: 87.5%;
   height: 22.5rem;
   overflow: hidden;
 `;

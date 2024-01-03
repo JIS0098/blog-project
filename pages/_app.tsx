@@ -26,4 +26,5 @@ export default function App({ Component, pageProps }: AppProps) {
 
 const Layout = styled.div`
   display: flex;
+  width: 100%;
 `;
