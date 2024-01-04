@@ -1,10 +1,13 @@
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "../components/commons/Header";
-import SideBar from "../components/commons/SideBar";
+import SideBar from "../components/commons/sideBar";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    margin: 0;
+  }
+  body *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
