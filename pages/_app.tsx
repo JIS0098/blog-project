@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
-import Header from "../components/commons/Header";
+import Header from "../components/commons/header";
 import SideBar from "../components/commons/sideBar";
 
 const GlobalStyle = createGlobalStyle`

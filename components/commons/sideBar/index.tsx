@@ -1,21 +1,17 @@
 import styled from "styled-components";
+import ProfileImg from "./ProfileImg";
+import Category from "./Category";
+import Date from "./Date";
+import Comment from "./Comment";
 
 function SideBar() {
   return (
     <SideBarLayout>
       <SideBarBox>
-        <DateBox>
-          <Date>2024.01.04</Date>
-          <ClockBox>
-            <Time>10:17</Time>
-            <TimeMeridiem>am</TimeMeridiem>
-          </ClockBox>
-        </DateBox>
+        <Date />
         <ProfileImg />
-        <CommentBox>
-          <h5>지수님</h5>
-          <Comment>Hello, World!</Comment>
-        </CommentBox>
+        <Comment />
+        <Category />
       </SideBarBox>
     </SideBarLayout>
   );
@@ -23,52 +19,15 @@ function SideBar() {
 
 const SideBarLayout = styled.div`
   background-color: #b69dd9;
-  width: 12.5%;
+  width: 16rem;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  padding: 1.6rem 1.5rem;
 `;
 const SideBarBox = styled.div`
-  margin: 0 auto;
-`;
-
-const ProfileImg = styled.div`
-  width: 11rem;
-  height: 14rem;
-  background-color: white;
-  border-radius: 1rem;
-`;
-
-const DateBox = styled.div`
   display: flex;
   flex-direction: column;
-  color: white;
-`;
-const Date = styled.div`
-  font-size: 1.1rem;
-  font-weight: 500;
-`;
-const ClockBox = styled.div`
-  display: flex;
-  align-items: end;
-  gap: 0.1rem;
-`;
-const Time = styled.div`
-  font-size: 2rem;
-  font-weight: 700;
-`;
-const TimeMeridiem = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-`;
-const CommentBox = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-`;
-const Comment = styled.div`
-  font-size: 1rem;
-  font-weight: 400;
+  width: 12rem;
+  gap: 0.7rem;
 `;
 
 export default SideBar;

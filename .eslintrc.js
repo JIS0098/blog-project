@@ -11,6 +11,7 @@ module.exports = {
     "airbnb/hooks",
     "prettier",
     "next",
+    "next/core-web-vitals",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -24,7 +25,7 @@ module.exports = {
   rules: {
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { extensions: [".tsx", ".jsx"] }], // 여기를 수정
+    "react/jsx-filename-extension": ["error", { extensions: [".tsx", ".tsx"] }],
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     "no-use-before-define": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -32,8 +33,6 @@ module.exports = {
       "error",
       "ignorePackages",
       {
-        js: "never",
-        jsx: "never",
         ts: "never",
         tsx: "never",
         svg: "always",
@@ -43,7 +42,7 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".svg"],
+        extensions: [".ts", ".tsx", ".svg"],
       },
     },
   },
