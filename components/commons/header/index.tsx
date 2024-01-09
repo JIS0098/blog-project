@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import { ASSETS_IMAGE_URL } from "../../../constants";
 import Tab from "../sideBar/Tab";
+import SearchInput from "./SearchInput";
 
 function Header() {
   return (
@@ -22,6 +23,7 @@ function Header() {
             alt="야간모드 아이콘"
           />
         </IconBox>
+        <SearchInput />
       </HeaderImage>
     </HeaderLayout>
   );
