@@ -12,6 +12,7 @@ module.exports = {
     "prettier",
     "next",
     "next/core-web-vitals",
+    "plugin:prettier/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -39,6 +40,7 @@ module.exports = {
       },
     ],
   },
+
   settings: {
     "import/resolver": {
       node: {

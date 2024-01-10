@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "../components/commons/header";
 import SideBar from "../components/commons/sideBar";
+import PostPage from "./post";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <SideBar />
         <Header />
         <Component {...pageProps} />
+        <PostPage />
       </Layout>
     </>
   );
