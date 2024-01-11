@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  :root{
+    --main-color:#B69DD9;
+  }
 `;
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,9 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Layout>
         <SideBar />
-        <Header />
-        <Component {...pageProps} />
-        <PostPage />
+        <Container>
+          <Header />
+          <PostPage />
+          <Component {...pageProps} />
+        </Container>
       </Layout>
     </>
   );
@@ -31,5 +37,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
 const Layout = styled.div`
   display: flex;
+`;
+
+const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;

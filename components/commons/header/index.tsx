@@ -30,7 +30,7 @@ function Header() {
 }
 
 const HeaderLayout = styled.div`
-  width: 176rem;
+  width: 100%;
   height: 20rem;
   overflow: hidden;
 `;
