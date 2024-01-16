@@ -31,6 +31,7 @@ function Category() {
 
 const CategoryLayout = styled.div`
   margin-top: 0.4rem;
+
   & h3 {
     font-size: 1.6rem;
     margin-bottom: 0.8rem;

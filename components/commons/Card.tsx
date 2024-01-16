@@ -24,7 +24,7 @@ const Card = () => {
 };
 
 const CardBox = styled.div`
-  width: 22rem;
+  width: 18rem;
   height: 23rem;
   background-color: #eaeaea;
   border-radius: 0.5rem;
@@ -41,7 +41,7 @@ const FavoriteIcon = styled(Image)`
 const DescriptionBox = styled.div`
   width: 100%;
   height: 11.5rem;
-  background-color: #9f9f9f;
+  background-color: #ffffff;
   border-radius: 0 0 0.8rem 0.8rem;
   padding: 1.2rem 1rem 1rem;
   box-sizing: border-box;

@@ -27,7 +27,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <SideBar />
         <Container>
           <Header />
-          <PostPage />
           <Component {...pageProps} />
         </Container>
       </Layout>

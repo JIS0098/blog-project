@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
 import { UpLoad } from "./UpLoad";
-import Title from "../Title";
 import ActionBadges from "../meta/ActionBadges";
 
 const Meta = () => {

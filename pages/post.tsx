@@ -10,8 +10,8 @@ function PostPage() {
       <PostBox>
         <Header />
         <Content />
-        <CategoryCarousel />
       </PostBox>
+      <CategoryCarousel />
     </PostLayout>
   );
 }
@@ -19,15 +19,12 @@ const PostLayout = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 3.5rem;
-  display: flex;
-  justify-content: center;
 `;
 
 const PostBox = styled.div`
   width: 94rem;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
 `;
 
 export default PostPage;

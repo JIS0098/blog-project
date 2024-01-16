@@ -20,7 +20,6 @@ function SideBar() {
 const SideBarLayout = styled.div`
   background-color: #b69dd9;
   width: 16rem;
-  height: 100vh;
   padding: 1.6rem 1.5rem;
 `;
 const SideBarBox = styled.div`
