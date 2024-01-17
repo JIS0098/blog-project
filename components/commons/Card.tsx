@@ -6,8 +6,8 @@ const Card = () => {
     <CardBox>
       <FavoriteIcon
         src={"/images/favorite-icon.svg"}
-        width={34}
-        height={33}
+        width={30}
+        height={28}
         alt="즐겨찾기 아이콘"
       />
       <DescriptionBox>
@@ -47,7 +47,7 @@ const DescriptionBox = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 0.09rem;
+  gap: 1rem;
 `;
 
 const Title = styled.h6`
