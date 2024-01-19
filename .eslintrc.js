@@ -4,41 +4,40 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
     "next",
     "next/core-web-vitals",
-    "plugin:prettier/recommended",
+    "prettier",
   ],
+
   parser: "@typescript-eslint/parser",
+  root: true,
+  overrides: [],
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
-  plugins: ["react", "prettier", "@typescript-eslint", "import"],
+
+  plugins: ["react", "@typescript-eslint", "import"],
   rules: {
+    indent: ["error", 2],
+    useTabs: false,
+    "prettier/prettier": ["error", { endOfLine: "off" }],
+    "no-nested-ternary": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { extensions: [".tsx", ".tsx"] }],
-    "prettier/prettier": ["error", { endOfLine: "auto" }],
     "no-use-before-define": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/jsx-filename-extension": ["error", { extensions: [".ts", ".tsx"] }],
     "import/extensions": [
       "error",
       "ignorePackages",
       {
         ts: "never",
         tsx: "never",
-        svg: "always",
       },
     ],
   },
-
   settings: {
     "import/resolver": {
       node: {
