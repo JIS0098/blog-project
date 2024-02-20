@@ -1,5 +1,5 @@
-import axios from "axios";
 import Head from "next/head";
+import styled from "styled-components";
 
 export default function Home() {
   <>
@@ -10,15 +10,17 @@ export default function Home() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main>
-      <button
-        onClick={async () => {
-          const 결과 = await axios.get("http://localhost:3000/api");
-          console.log(결과);
-        }}
-      >
-        api 요청해보기
-      </button>
-    </main>
+    <main></main>
   </>;
+}
+
+{
+  /* <button
+  onClick={async () => {
+    const 결과 = await axios.get("http://localhost:3000/api");
+    console.log(결과);
+  }}
+>
+  api 요청해보기
+</button> */
 }
