@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema(
   {
+    title: { type: String, default: "" },
     content: { type: String, default: "" },
   },
   {
@@ -9,6 +10,6 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-const Todo = mongoose.models["Post"] || mongoose.model("Post", postSchema);
+const Post = mongoose.models["Post"] || mongoose.model("Post", postSchema);
 
-export default Todo;
+export default Post;
