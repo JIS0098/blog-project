@@ -1,11 +1,16 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
 function Tab() {
   return (
     <TabList>
-      <li>Home</li>
-      <li>Write</li>
+      <Link href="/post">
+        <li>Home</li>
+      </Link>
+      <Link href="/edit">
+        <li>Write</li>
+      </Link>
     </TabList>
   );
 }

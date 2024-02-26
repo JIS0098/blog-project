@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-function SearchInput({ onSearch }) {
+function SearchInput({ onSearch, children, placeholder }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (event) => {
@@ -17,13 +17,13 @@ function SearchInput({ onSearch }) {
 
   return (
     <SearchInputLayout onSubmit={handleSubmit}>
-      <h1>플레이 리스트 검색</h1>
+      <h1>{children}</h1>
       <div>
         <input
           type="text"
           value={searchQuery}
           onChange={handleChange}
-          placeholder="동영상을 검색하세요"
+          placeholder={placeholder}
         />
         <SubmitButton type="submit">검색</SubmitButton>
       </div>
@@ -32,24 +32,24 @@ function SearchInput({ onSearch }) {
 }
 
 const SearchInputLayout = styled.form`
-  width: 95rem;
+  width: 88rem;
   display: flex;
   flex-direction: column;
 
   & h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 600;
     color: var(--main-color);
     margin-bottom: 0.8rem;
   }
 
   & input {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    height: 4.5rem;
     width: 100%;
-    height: 5rem;
     border-radius: 0.6rem;
     border: 0.15rem solid var(--main-color);
-    padding: 0 2rem;
+    padding: 1rem 2rem;
   }
 
   & div {
@@ -63,7 +63,7 @@ const SubmitButton = styled.button`
   position: absolute;
   right: 0;
   width: 8rem;
-  height: 5rem;
+  height: 4.5rem;
   border-top-right-radius: 0.6rem;
   border-bottom-right-radius: 0.6rem;
   font-size: 1.5rem;

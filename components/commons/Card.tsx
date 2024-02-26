@@ -1,37 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-const Card = () => {
+const Card = ({ post }) => {
+  const EditDate = (acreatedAt) => acreatedAt.substring(0, 10);
   return (
-    <CardBox>
+    <CardLayout>
       <FavoriteIcon
         src={"/images/favorite-icon.svg"}
-        width={30}
-        height={28}
+        width={25}
+        height={23}
         alt="즐겨찾기 아이콘"
       />
       <DescriptionBox>
-        <Title>엽떡vs마라로제</Title>
-        <Text>
-          나는 이번주에 떡볶이를 먹을건데 진짜진짜 고민 이다 마라맛도 먹고싶고
-          엽떡의 원조맛도 먹고 싶 은데 세상엔 먹을게 어쩌구 저쩌구 이렇쿵
-          저러...
-        </Text>
-        <UploadDate>2024. 01. 12</UploadDate>
+        <Title>{post?.title}</Title>
+        <TextBox>
+          <Text>{post?.content}</Text>
+        </TextBox>
+        <UploadDate>{EditDate(post?.createdAt)}</UploadDate>
       </DescriptionBox>
-    </CardBox>
+    </CardLayout>
   );
 };
 
-const CardBox = styled.div`
-  width: 18rem;
-  height: 23rem;
+const CardLayout = styled.div`
+  width: 100%;
+  height: 25rem;
   background-color: #eaeaea;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
   justify-content: end;
   position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 const FavoriteIcon = styled(Image)`
   position: absolute;
@@ -40,30 +40,42 @@ const FavoriteIcon = styled(Image)`
 `;
 const DescriptionBox = styled.div`
   width: 100%;
-  height: 11.5rem;
+  height: 12rem;
   background-color: #ffffff;
   border-radius: 0 0 0.8rem 0.8rem;
   padding: 1.2rem 1rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 `;
 
-const Title = styled.h6`
-  font-size: 1.3rem;
+const Title = styled.div`
+  font-size: 1.6rem;
+  font-weight: 600;
   margin: 0;
 `;
 
-const Text = styled.p`
-  font-size: 0.8rem;
+const TextBox = styled.div`
+  width: 100%;
+  height: 4.5rem;
+`;
+
+const Text = styled.div`
+  font-size: 1.1rem;
   font-weight: 100;
   color: #8b8b8b;
+  line-height: 1.5rem;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 `;
 
 const UploadDate = styled.div`
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: black;
 `;
 export default Card;

@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import SearchInput from "../../components/domains/post/SearchInput";
 import YouTube from "react-youtube";
 import axios from "axios";
 import random from "../../public/images/random.svg";
 import Image from "next/image";
-import TextEditor from "../../components/domains/post/TextEditor";
+import TextEditor from "../../components/domains/edit/TextEditor";
+import SearchInput from "../../components/commons/SearchInput";
 
 function editPage() {
   const [selectedVideo, setSelectedVideo] = useState();
@@ -36,8 +36,13 @@ function editPage() {
   };
 
   return (
-    <PostLayout>
-      <SearchInput onSearch={handleSearch} />
+    <>
+      <SearchInput
+        placeholder="플레이 리스트 키워드를 입력해주세요."
+        onSearch={handleSearch}
+      >
+        전체
+      </SearchInput>
       <RadioBox>
         <div>
           {selectedVideo && (
@@ -61,19 +66,9 @@ function editPage() {
         </RandomButton>
       </RadioBox>
       <TextEditor />
-    </PostLayout>
+    </>
   );
 }
-
-const PostLayout = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
-  gap: 3rem;
-`;
 
 const RadioBox = styled.div`
   width: 47rem;

@@ -1,6 +1,8 @@
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
-import Header from "../components/commons/header";
+import PageLayout from "../components/commons/PageLayout";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -22,16 +24,24 @@ html {
     --main-color:#B69DD9;
   }
 
-
+  a {
+  text-decoration: none; 
+  color: inherit; 
+  cursor: pointer; 
+  
+}
 
 `;
 
 export default function App({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <GlobalStyle />
-      <Header />
-      <Component {...pageProps} />
-    </>
+      <PageLayout>
+        <Component {...pageProps} />
+      </PageLayout>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
