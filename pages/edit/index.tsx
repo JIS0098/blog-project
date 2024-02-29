@@ -6,11 +6,20 @@ import random from "../../public/images/random.svg";
 import Image from "next/image";
 import TextEditor from "../../components/domains/edit/TextEditor";
 import SearchInput from "../../components/commons/SearchInput";
-
+import { useQuery } from "@tanstack/react-query";
 function editPage() {
   const [selectedVideo, setSelectedVideo] = useState();
   const [videoList, setVideoList] = useState([]);
   const previousKeyword = useRef();
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["post"],
+    queryFn: async () => {
+      const response = await axios.get("http://localhost:3000/api");
+      return response.data;
+    },
+    cacheTime: 10 * 60 * 1000,
+  });
 
   const handleRandomVideo = () => {
     const randomIndex = Math.floor(Math.random() * videoList.length);
@@ -25,11 +34,12 @@ function editPage() {
 
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=Playlist${keyword}광고없&part=snippet&maxResults=20&type=video&key=AIzaSyCRFxQU8ChM_sKxLtl52dPV_kLi64yxM4k`
+        `https://www.googleapis.com/youtube/v3/search?q=Playlist${keyword}광고&part=snippet&maxResults=20&type=video&key=AIzaSyCRFxQU8ChM_sKxLtl52dPV_kLi64yxM4k`
       );
       setVideoList(response.data.items);
       setSelectedVideo(response.data.items[0]);
       previousKeyword.current = keyword;
+      console.log("응 요청됐어 돌아가");
     } catch (error) {
       console.error("Error fetching videos:", error);
     }
@@ -44,22 +54,21 @@ function editPage() {
         전체
       </SearchInput>
       <RadioBox>
-        <div>
-          {selectedVideo && (
-            <YouTube
-              opts={{
-                width: "450px", // 너비를 500px로 설정
-                height: "250px",
-                playerVars: {
-                  autoplay: 1, // 자동 재생 활성화
-                },
-              }}
-              key={selectedVideo.id.videoId}
-              videoId={selectedVideo.id.videoId}
-            />
-          )}
-        </div>
-
+        {selectedVideo ? (
+          <YouTube
+            opts={{
+              width: "450px", // 너비를 500px로 설정
+              height: "250px",
+              playerVars: {
+                autoplay: 1, // 자동 재생 활성화
+              },
+            }}
+            key={selectedVideo.id.videoId}
+            videoId={selectedVideo.id.videoId}
+          />
+        ) : (
+          <Preview />
+        )}
         <RandomButton onClick={handleRandomVideo}>
           <div>랜덤 재생</div>
           <Image width={50} height={50} src={random} />
@@ -95,5 +104,14 @@ const RandomButton = styled.div`
     font-weight: 600;
     color: var(--main-color);
   }
+`;
+
+const Preview = styled.div`
+  width: 45rem;
+  height: 25rem;
+  background-color: lightgray;
+`;
+const YouTubeBox = styled.div`
+  z-index: 1;
 `;
 export default editPage;

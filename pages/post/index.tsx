@@ -4,19 +4,24 @@ import PostList from "../../components/domains/post/PostList";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-function postPage() {
-  const { data } = useQuery({
+function PostPage() {
+  const { data, isLoading } = useQuery({
     queryKey: ["post"],
     queryFn: async () => {
       const response = await axios.get("http://localhost:3000/api");
       return response.data;
     },
+    cacheTime: 10 * 60 * 1000,
   });
+
+  if (isLoading) return;
 
   return (
     <PostPageLayout>
       <SearchInput placeholder="제목, 내용을 입력해주세요.">전체</SearchInput>
-      {data?.length > 0 ? (
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : data?.length > 0 ? (
         <PostList postList={data} />
       ) : (
         <NotFoundPost>
@@ -45,4 +50,4 @@ const NotFoundPost = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export default postPage;
+export default PostPage;

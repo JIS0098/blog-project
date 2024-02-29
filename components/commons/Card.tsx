@@ -1,10 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 const Card = ({ post }) => {
-  const EditDate = (acreatedAt) => acreatedAt.substring(0, 10);
+  const router = useRouter();
+  const EditDate = (createdAt) => createdAt.substring(0, 10);
+
+  const handlePostClick = (data) => {
+    router.push(`/post/${data?._id}`);
+  };
+
+  const stripHtmlTags = (html) => {
+    return html.replace(/<[^>]*>?/gm, "");
+  };
+
+  const contentWithoutHtmlTags = stripHtmlTags(post.content);
+
   return (
-    <CardLayout>
+    <CardLayout
+      onClick={() => {
+        handlePostClick(post);
+      }}
+    >
       <FavoriteIcon
         src={"/images/favorite-icon.svg"}
         width={25}
@@ -14,7 +32,7 @@ const Card = ({ post }) => {
       <DescriptionBox>
         <Title>{post?.title}</Title>
         <TextBox>
-          <Text>{post?.content}</Text>
+          <Text>{contentWithoutHtmlTags}</Text>
         </TextBox>
         <UploadDate>{EditDate(post?.createdAt)}</UploadDate>
       </DescriptionBox>
@@ -23,7 +41,7 @@ const Card = ({ post }) => {
 };
 
 const CardLayout = styled.div`
-  width: 100%;
+  width: 20rem;
   height: 25rem;
   background-color: #eaeaea;
   border-radius: 0.6rem;
@@ -51,7 +69,7 @@ const DescriptionBox = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 600;
   margin: 0;
 `;

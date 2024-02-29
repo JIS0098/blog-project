@@ -4,7 +4,7 @@ import Card from "../../commons/Card";
 function PostList({ postList }) {
   return (
     <PostListLayout>
-      {postList?.map((post) => <Card post={post} key={post.id} />)}
+      {postList?.map((post) => <Card post={post} key={post._id} />)}
     </PostListLayout>
   );
 }
@@ -13,7 +13,7 @@ const PostListLayout = styled.div`
   width: 100%;
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 
   & h1 {

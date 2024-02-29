@@ -16,4 +16,9 @@ export default async function handler(
     const data = await Post.find();
     return res.status(200).json(data);
   }
+  if (req.method === "DELETE") {
+    const { id } = req.query;
+    const deleted = await Post.findByIdAndDelete(id);
+    return res.json(deleted);
+  }
 }

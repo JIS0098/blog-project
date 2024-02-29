@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
-import PageLayout from "../components/commons/PageLayout";
+import PageLayout from "../components/PageLayout";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
