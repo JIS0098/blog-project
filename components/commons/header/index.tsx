@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 import { ASSETS_IMAGE_URL } from "../../../constants";
 import Tab from "./Tab";
 

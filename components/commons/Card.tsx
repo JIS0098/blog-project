@@ -50,6 +50,7 @@ const CardLayout = styled.div`
   justify-content: end;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 `;
 const FavoriteIcon = styled(Image)`
   position: absolute;

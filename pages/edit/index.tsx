@@ -39,7 +39,7 @@ function editPage() {
       setVideoList(response.data.items);
       setSelectedVideo(response.data.items[0]);
       previousKeyword.current = keyword;
-      console.log("응 요청됐어 돌아가");
+      console.log("요청됐습니당");
     } catch (error) {
       console.error("Error fetching videos:", error);
     }
@@ -51,7 +51,7 @@ function editPage() {
         placeholder="플레이 리스트 키워드를 입력해주세요."
         onSearch={handleSearch}
       >
-        전체
+        플레이 리스트 검색
       </SearchInput>
       <RadioBox>
         {selectedVideo ? (
@@ -71,7 +71,7 @@ function editPage() {
         )}
         <RandomButton onClick={handleRandomVideo}>
           <div>랜덤 재생</div>
-          <Image width={50} height={50} src={random} />
+          <Image width={50} height={50} src={random} alt="랜덤 버튼 아이콘" />
         </RandomButton>
       </RadioBox>
       <TextEditor />

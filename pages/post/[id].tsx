@@ -34,7 +34,13 @@ function postPage() {
     <>
       <Layout>
         <PostTitleBox>
-          <div>전체</div>
+          <div
+            onClick={() => {
+              router.push("/post");
+            }}
+          >
+            전체
+          </div>
           <h1>{post?.title}</h1>
         </PostTitleBox>
         <PostMetaBox>
@@ -73,6 +79,10 @@ const PostTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  & div {
+    cursor: pointer;
+  }
 `;
 
 const PostMetaBox = styled.div`
